@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import morgan from "morgan";
 import userRouter from "./routes/user.js";
+import workerRouter from "./routes/worker.js";
 
 const port = 5000;
 
@@ -14,6 +15,8 @@ app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 app.use("/users", userRouter); //http://localhost:5000/users/signup
+app.use("/worker", workerRouter); //http://localhost:5000/users/signup
+
 
 const MONGODB_URL =
   "mongodb+srv://nikhil:nikhil_123@cluster0.58hrx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
