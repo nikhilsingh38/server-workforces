@@ -78,3 +78,13 @@ export const updatedWorker = async (req, res) => {
     res.status(404).json({ message: "Something went wrong" });
   }
 };
+
+export const getWorkersByTag = async (req, res) => {
+  const { tag } = req.params;
+  try {
+    const workers = await WorkerModal.find({ tags: { $in: tag } });
+    res.json(workers);
+  } catch (error) {
+    res.status(404).json({ message: "Something went wrong" });
+  }
+};
